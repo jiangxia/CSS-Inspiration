@@ -1,5 +1,12 @@
+// 1、JavaScript 表达式在less 文件中使用，可以通过反引号的方式使用
+// 2、less拼接单位时，数字与单位间存下空格，如100 px，可以使用unit方法
+// 3、使用mixin的语法实现函数
+
 @lineCount: 4;
 @count: 8;
+@randomColor: `(Math.floor((Math.random()*255)+1))`;
+@randomHeight: `(Math.floor((Math.random()*300))+50)`;
+
 :global {
   .g-container {
     display: flex;
@@ -28,8 +35,8 @@
         .showItem(@i + 1);
 
         .g-item:nth-child(@{i}) {
-          height: 100px;
-          background: #ccc;
+          height: unit(@randomHeight,px);
+          background: rgb(@randomColor, @randomColor, @randomColor);;
 
           &::after {
             content: '@{i}';
