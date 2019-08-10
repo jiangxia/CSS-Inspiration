@@ -1,0 +1,50 @@
+@lineCount: 4;
+@count: 8;
+:global {
+  .g-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .g-queue {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 24%;
+  }
+
+  .g-item {
+    position: relative;
+    width: 100%;
+    margin: 2.5% 0;
+  }
+
+  .show(@n) when (@n < @lineCount + 1) {
+    .show(@n + 1);
+
+    .g-queue:nth-child(@{n}) {
+      .showItem(@i) when (@i < @count + 1) {
+        .showItem(@i + 1);
+
+        .g-item:nth-child(@{i}) {
+          height: 100px;
+          background: #ccc;
+
+          &::after {
+            content: '@{i}';
+            position: absolute;
+            color: #fff;
+            font-size: 24px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+      .showItem(1);
+    }
+  }
+
+  .show(1);
+}
