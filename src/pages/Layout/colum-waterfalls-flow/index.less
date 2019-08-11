@@ -1,0 +1,35 @@
+@count: 32;
+@randomColor: `(Math.floor((Math.random() * 255)+1)) `;
+@randomHeight: `(Math.floor((Math.random() * 300)) + 50) `;
+
+.g-container {
+  column-count: 4;
+  column-gap: 0.5vw;
+  padding-top: 0.5vw;
+}
+
+.g-item {
+  position: relative;
+  width: 18vw;
+  margin-bottom: 1vw;
+  break-inside: avoid;
+}
+.show(@n) when (@n < @count + 1) {
+  .show(@n + 1);
+
+  .g-item:nth-child(@{n}) {
+    height: unit(@randomHeight, px);
+    background: rgb(@randomColor, @randomColor, @randomColor);
+
+    &::after {
+      content: '@{n}';
+      position: absolute;
+      color: #fff;
+      font-size: 2vw;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+.show(1);

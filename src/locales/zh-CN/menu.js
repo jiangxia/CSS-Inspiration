@@ -1,6 +1,9 @@
 export default {
   'menu.welcome': '欢迎',
-  'menu.pubuFlex': '瀑布流布局（flex）',
+  'menu.layout': '布局',
+  'menu.layout.flex-waterfalls-flow': '瀑布流布局（flex）',
+  'menu.layout.colum-waterfalls-flow': '瀑布流布局（column）',
+  'menu.layout.grid-waterfalls-flow': '瀑布流布局（grid）',
   'menu.more-blocks': '更多区块',
   'menu.home': '首页',
   'menu.login': '登录',

@@ -84,9 +84,7 @@ export default {
   routes: [
     {
       path: '/',
-      component: '../layouts/BasicLayout',
-      Routes: ['src/pages/Authorized'],
-      authority: ['admin', 'user'],
+      component: '../layouts/BasicLayout', // 指定以下页面的布局
       routes: [
         {
           path: '/',
@@ -95,16 +93,21 @@ export default {
           component: './Welcome',
         },
         {
-          path: '/layout/PubuFlex',
-          name: 'pubuFlex',
-          icon: 'smile',
-          component: './Layout/PubuFlex',
-        },
-        {
-          component: './404',
+          path: '/layout',
+          name: 'layout',
+          icon: 'dashboard',
+          routes: [
+            { path: '/layout/flex-waterfalls-flow', name: 'flex-waterfalls-flow', component: './Layout/flex-waterfalls-flow' },
+            { path: '/layout/colum-waterfalls-flow', name: 'colum-waterfalls-flow', component: './Layout/colum-waterfalls-flow' },
+            // { path: '/layout/grid-waterfalls-flow', name: 'grid-waterfalls-flow', component: './Layout/grid-waterfalls-flow' },
+          ],
         },
       ],
     },
+
+
+
+    
     {
       component: './404',
     },
